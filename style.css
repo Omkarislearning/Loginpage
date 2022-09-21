@@ -1,0 +1,273 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color:mediumpurple;
+    transition: 0.5s;
+}
+
+body.active
+{
+    background-color: palevioletred;
+}
+
+.conatiner
+{
+    position: relative;
+    width: 700px;
+    height: 450px;
+    margin: 20px;
+}
+.main
+{
+    height: 380px;
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    background:rgba(255, 255, 255, 0.5);
+    box-shadow: 0 6px 35px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-transform: uppercase;
+}
+.box
+{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 50%;
+    flex-direction: column;
+    padding: 20px;
+}
+.box h2
+{
+    font-size: 1.4rem;
+    color: mediumpurple;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.signup h2
+{
+    font-size: 1.4rem;
+    color: palevioletred;
+    letter-spacing: 1px;
+    text-align: center;
+}
+.signup button
+{
+    background-color: palevioletred;
+    cursor: pointer;
+    width: 50%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+}
+.signin button
+{
+    cursor: pointer;
+    width: 50%;
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: none;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    background-color: mediumpurple;
+    color: white;
+}
+.form
+{
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    top:0;
+    left: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 6px 35px;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.form.active
+{
+    left:50%;
+    transition: 0.5s ease-in;
+}
+.form form
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 10px 30px;
+    transition: 0.5s ease-in; 
+    position: absolute;
+    left: 0;
+}
+.form form h2
+{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.form .box .input_control{
+    outline: none;
+    padding: 5px 20px;
+    margin: 5px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: .4s shake;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+}
+.input_control>small
+{
+    color: red;
+}
+.box .input_control input
+{
+    outline: none;
+    border: none;
+    font-weight: 600;
+    font-size: 17px;
+}
+.box .input_control input:focus
+{
+    outline:none;
+    border: none;
+}
+.form .box .input_control.success 
+{
+border: 2px solid yellowgreen;
+}
+.form .box .input_control.error
+{
+border: 2px solid red;
+animation: shake .5s 3;
+}
+@keyframes shake{
+    0%
+    {
+        transform: translateX(0);
+    }
+    40%
+    {
+        transform: translateX(10px);
+    }
+    100%{
+        transform: translateX(-10px);
+    }
+}
+.form .box  input[type="submit"]
+{
+    margin-top: 10px;
+    color: white;
+    font-size: 1.2rem;
+    background-color: mediumpurple;
+    border: none;
+    width: 100%;
+    padding: 5px 20px; 
+}
+.form .signupform input[type="submit"]
+{
+    margin-top: 10px;
+    color: white;
+    font-size: 1.2rem;
+    background-color:palevioletred;
+    border: none;
+}
+.form.active .signinform
+{
+    left: -100%;
+    transition-delay: 0s;
+}
+.form .signupform
+{
+    left: 100%;
+    transition-delay: 0s;
+}
+.form.active .signupform
+{
+    left:0;
+    transition-delay: 0.25s;
+}
+.form .signinform
+{
+    transition-delay: 0.25s;
+}
+@media (max-width:991px)
+{
+    .conatiner{
+        max-width: 400px;
+        height: 550px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .main
+    {
+            top: 0;
+            position: absolute;
+            height: 100%;   
+    }
+    .form
+    {
+        width: 100%;
+        height: 400px;
+        top: 0;
+    }
+    .main .signin{
+        position: absolute;
+        bottom: 5px;
+        width: 100%;
+        height: 140px;
+    }
+    .main .signup
+    {
+        top:0;
+        position: absolute;
+        width: 100%;
+    }
+    .main .signup h2
+    {
+        font-size: 20px;
+        color: white ;
+        margin-bottom: 20px;
+    }
+    .main .signup button
+    {
+        margin: 0;
+    }
+
+    .form.active
+    {
+        left: 0;
+        top: 150px;
+        transition: 0.5s ease-in;
+      }
+}
+.name_error
+{
+    transition: 0.3s shake;
+    color:red;
+}
